@@ -18,6 +18,8 @@ namespace dev_exercices {
  */
 bool areAnagram(const std::string &iStr1,const std::string &iStr2);
 
+bool areAnagramV2(const std::string &iStr1,const std::string &iStr2);
+
 }  // namespace dev_exercices
 
 #endif  // SRC_DEV_EXERCICES_EXERCICE_H_
