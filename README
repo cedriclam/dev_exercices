@@ -1,0 +1,128 @@
+autotools-unittest
+==================
+
+The autotools-unittest is a minimal starter kit when writing C++ library
+with autotools, google test(gtest) and google mock(gmock).
+This include gtest-1.6.0 and gmock-1.6.0,
+so you can use those testing framework without installation.
+
+Requirements
+------------
+
+* Autoconf
+* Automake
+* Libtool
+
+Example
+-------
+
+0. Download the package and extract it
+
+```
+$ wget http://github.com/downloads/eiichiroi/autotools-unittest/autotools-unittest-0.2.0.tar.gz
+$ tar xzf autotools-unittest-0.2.0.tar.gz
+```
+
+1. Change directory name to your library name(ex. mylib) and move into the directory
+
+```
+$ mv autotools-unittest-0.2.0 mylib
+$ cd mylib
+```
+
+2. Change package name from 'autotools-unittest' to your library name
+
+```
+$ ./scripts/change_package_name.sh mylib
+Changing package name from 'autotools-unittest' to 'mylib' ... Are you sure? [yes/NO]: yes
+===========================================================================
+
+* ./src/autotools-unittest
+
+These directory names listed above will be changed. Are you sure? [yes/NO]: yes
+
+* ./src/autotools-unittest ... done.
+
+===========================================================================
+
+* ./configure.ac
+* ./test/sample_test.cpp
+* ./Makefile.am
+
+These contents of files listed above will be changed. Are you sure? [yes/NO]: yes
+
+* ./configure.ac ... done.
+* ./test/sample_test.cpp ... done.
+* ./Makefile.am ... done.
+```
+
+3. Build sample codes
+
+```
+$ ./autogen.sh
+$ ./configure
+$ make
+```
+
+4. Build gtest, gmock and unit tests for sample codes, and run them
+
+```
+$ make check
+```
+
+5. Write your library
+
+Tips
+----
+
+* Use coverage reporting
+
+You can use coverage reporting feature if lcov is installed in your environment.
+
+```
+$ ./configure --enable-coverage
+$ make coverage
+...
+Successfully created coverage reports into ./coverage directory.
+```
+
+Please check "./coverage/index.html".
+
+By default, source codes will be complied with no-optimization(-O0 option) to get more precise results.
+
+If you would like to get coverage reports with optimization, please use COVERAGE_OPTIMIZATION_FLAGS variables like this.
+
+```
+$ make coverage COVERAGE_OPTIMIZATION_FLAGS="-O2"
+```
+
+Please take care that coverage reports with optimization results in unexpected one.
+
+* Use coding style checks
+
+You can use coding style checker(cpplint) if python is installed in your environment.
+
+```
+$ make check-style
+```
+
+If you would like to check coding style with cpplint's options, please use CPPLINT_OPTIONS variables like this.
+
+```
+$ make check-style CPPLINT_OPTIONS="--verbose=4"
+```
+
+* Use advanced gtest options
+
+You can use advanced gtest options via environment variables(GTEST_xxx).
+
+For example, you can filter test cases as follows.
+
+```
+$ GTEST_FILTER="square.*" make check
+```
+
+For more information about advanced options, please see the following page.
+
+http://code.google.com/p/googletest/wiki/V1_6_AdvancedGuide#Running_Test_Programs:_Advanced_Options
+
