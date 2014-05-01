@@ -9,6 +9,16 @@ TEST(areAllUnique, isTrue) {
   	EXPECT_TRUE(AreAllUnique(input));
 }
 
+TEST(areAllUnique, isFalse) {
+	std::string input = "abadd";
+  	EXPECT_FALSE(AreAllUnique(input));
+}
+
+TEST(areAllUnique, isEmpty) {
+	std::string input = "";
+  	EXPECT_TRUE(AreAllUnique(input));
+}
+
 
 
 
