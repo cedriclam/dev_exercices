@@ -2,31 +2,20 @@
 #ifndef SRC_DEV_EXERCICES_EXERCICE_H_
 #define SRC_DEV_EXERCICES_EXERCICE_H_
 
+#include <string>
+
 /** @namespace dev_exercices */
 namespace dev_exercices {
 
 /**
- * @brief Calculate the square of given number.
+ * @brief Check if all the char present in the input string are unique
  *
- * @param [in] n A number.
+ * @param [in] iString a string.
  *
- * @return The square of given number n.
+ * @return true: if all char are unique.
+ * @return false: if at least on of the char is present more than one time
  */
-int square(int n);
-
-/**
- * @brief Calculate the factorial of given number.
- *
- * @param [in] n A number.
- *
- * @return The factorial of given number n.
- */
-inline int factorial(int n) {
-  if (n <= 1) {
-    return 1;
-  }
-  return n * factorial(n-1);
-}
+ bool AreAllUnique(const std::string &iString);
 
 }  // namespace dev_exercices
 

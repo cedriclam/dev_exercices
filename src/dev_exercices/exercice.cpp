@@ -1,9 +1,16 @@
 #include "dev_exercices/exercice.h"
 
+#include <unordered_map>
+
+
 namespace dev_exercices {
 
-int square(int n) {
-  return n * n;
+bool AreAllUnique(const std::string &iString){
+	typedef std::unordered_map<char,int> hashMap;
+
+
+
+	return true;
 }
 
 }  // namespace dev_exercices
