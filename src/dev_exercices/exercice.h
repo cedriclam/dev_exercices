@@ -2,17 +2,19 @@
 #ifndef SRC_DEV_EXERCICES_EXERCICE_H_
 #define SRC_DEV_EXERCICES_EXERCICE_H_
 
+#include <string>
+
 /** @namespace dev_exercices */
 namespace dev_exercices {
 
 /**
- * @brief function 
+ * @brief reverseString reverse the char present in a string 
  *
- * @param [in] 
+ * @param [in] iString a string
  *
- * @return 
+ * @return ioString the reverted string
  */
-void function();
+void reverseString(std::string &ioString);
 
 }  // namespace dev_exercices
 

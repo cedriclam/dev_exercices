@@ -5,6 +5,9 @@
 namespace dev_exercices {
 
 TEST(exercice, one) {
+	std::string input = "input";
+	reverseString(input);
+	EXPECT_EQ(input ,"tupni");
 }
 
 
