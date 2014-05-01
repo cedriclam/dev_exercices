@@ -16,6 +16,8 @@ namespace dev_exercices {
  */
 void replaceSpaceChar(std::string& ioStr);
 
+void replaceSpaceCharV2(std::string& ioStr);
+
 }  // namespace dev_exercices
 
 #endif  // SRC_DEV_EXERCICES_EXERCICE_H_

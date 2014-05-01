@@ -25,4 +25,25 @@ TEST(exercice, someSpace) {
 
 }
 
+TEST(exerciceV2, emptyString) {
+  std::string input;
+  replaceSpaceCharV2(input);
+  EXPECT_EQ(input,"");
+
+}
+
+TEST(exerciceV2, noSpaceChar) {
+  std::string input = "thisisatestwithoutspace";
+  replaceSpaceCharV2(input);
+  EXPECT_EQ(input,"thisisatestwithoutspace");
+
+}
+
+TEST(exerciceV2, someSpace) {
+  std::string input = "this is a test without space";
+  replaceSpaceCharV2(input);
+  EXPECT_EQ(input,"this%20is%20a%20test%20without%20space");
+
+}
+
 }  // namespace dev_exercices
