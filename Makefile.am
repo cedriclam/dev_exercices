@@ -38,15 +38,12 @@ lib_gmock_libgmock_main_la_LIBADD = \
 
 # Build rules for libraries.
 pkginclude_HEADERS = \
-  src/dev_exercices/sample.h \
   src/dev_exercices/exercice.h
 
 lib_LTLIBRARIES = \
   src/dev_exercices/libsample.la
 
 src_dev_exercices_libsample_la_SOURCES = \
-  src/dev_exercices/sample.h \
-  src/dev_exercices/sample.cpp \
   src/dev_exercices/exercice.h \
   src/dev_exercices/exercice.cpp
 

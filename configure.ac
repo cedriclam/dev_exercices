@@ -33,6 +33,9 @@ AC_PROG_CXX
 
 AC_LANG([C++], [C])
 
+#AM_CXXFLAGS="-std=c++11"
+CXXFLAGS="$CXXFLAGS -std=c++0x"
+
 # Check for libraries.
 # * Check for pthreads library.
 ACX_PTHREAD([have_pthread=yes], [heve_pthread=no])
