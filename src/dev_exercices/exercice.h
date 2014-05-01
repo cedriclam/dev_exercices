@@ -16,6 +16,7 @@ namespace dev_exercices {
  * @return false: if at least on of the char is present more than one time
  */
  bool AreAllUnique(const std::string &iString);
+ bool AreAllUniqueV2(const std::string &iString);
 
 }  // namespace dev_exercices
 

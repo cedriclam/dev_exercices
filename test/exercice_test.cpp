@@ -19,7 +19,21 @@ TEST(areAllUnique, isEmpty) {
   	EXPECT_TRUE(AreAllUnique(input));
 }
 
+// same test with the seconde version
+TEST(areAllUniqueV2, isTrue) {
+	std::string input = "abcds";
+  	EXPECT_TRUE(AreAllUniqueV2(input));
+}
 
+TEST(areAllUniqueV2, isFalse) {
+	std::string input = "abadd";
+  	EXPECT_FALSE(AreAllUniqueV2(input));
+}
+
+TEST(areAllUniqueV2, isEmpty) {
+	std::string input = "";
+  	EXPECT_TRUE(AreAllUniqueV2(input));
+}
 
 
 }  // namespace dev_exercices

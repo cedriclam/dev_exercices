@@ -21,4 +21,18 @@ bool AreAllUnique(const std::string &iString){
 	return true;
 }
 
+bool AreAllUniqueV2(const std::string &iString){
+
+	
+	for(int i = 0; i < iString.length(); ++i){
+		for(int j = i+1; j < iString.length(); ++j){
+			if (iString[i] == iString[j]){
+				return false;
+			}
+		}
+	}
+
+	return true;
+}
+
 }  // namespace dev_exercices
