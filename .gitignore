@@ -15,6 +15,8 @@ Makefile.in
 
 # Generated files
 autoscan.log
+m4/*.m4
+*.dirstamp
 libtool
 ltmain.sh
 stamp-h1
