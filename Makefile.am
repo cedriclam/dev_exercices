@@ -38,14 +38,17 @@ lib_gmock_libgmock_main_la_LIBADD = \
 
 # Build rules for libraries.
 pkginclude_HEADERS = \
-  src/dev_exercices/sample.h
+  src/dev_exercices/sample.h \
+  src/dev_exercices/exercice.h
 
 lib_LTLIBRARIES = \
   src/dev_exercices/libsample.la
 
 src_dev_exercices_libsample_la_SOURCES = \
   src/dev_exercices/sample.h \
-  src/dev_exercices/sample.cpp
+  src/dev_exercices/sample.cpp \
+  src/dev_exercices/exercice.h \
+  src/dev_exercices/exercice.cpp
 
 # Build rules for tests.
 # TESTS_ENVIRONMENT: Set environment variables for the test run
@@ -58,13 +61,13 @@ UNIT_TESTS=
 check_PROGRAMS=
 
 # Define unit tests with gtest
-UNIT_TESTS += test/sample_test
-check_PROGRAMS += test/sample_test
-test_sample_test_SOURCES = test/sample_test.cpp
-test_sample_test_CPPFLAGS = -I$(top_srcdir)/src $(GTEST_CPPFLAGS)
-test_sample_test_CXXFLAGS = $(GTEST_CXXFLAGS)
-test_sample_test_LDFLAGS = $(GTEST_LDFLAGS)
-test_sample_test_LDADD = $(top_builddir)/src/dev_exercices/libsample.la \
+UNIT_TESTS += test/exercice_test
+check_PROGRAMS += test/exercice_test
+test_exercice_test_SOURCES = test/exercice_test.cpp
+test_exercice_test_CPPFLAGS = -I$(top_srcdir)/src $(GTEST_CPPFLAGS)
+test_exercice_test_CXXFLAGS = $(GTEST_CXXFLAGS)
+test_exercice_test_LDFLAGS = $(GTEST_LDFLAGS)
+test_exercice_test_LDADD = $(top_builddir)/src/dev_exercices/libsample.la \
                          $(GTEST_LIBS) \
                          $(top_builddir)/lib/gmock/libgmock_main.la \
                          $(top_builddir)/lib/gmock/libgmock.la
