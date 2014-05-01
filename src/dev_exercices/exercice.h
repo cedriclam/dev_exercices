@@ -2,17 +2,19 @@
 #ifndef SRC_DEV_EXERCICES_EXERCICE_H_
 #define SRC_DEV_EXERCICES_EXERCICE_H_
 
+#include <string>
+
 /** @namespace dev_exercices */
 namespace dev_exercices {
 
 /**
- * @brief function 
+ * @brief removeDuplicate char in the input string
  *
- * @param [in] 
+ * @param [in] iStr input string
  *
- * @return 
+ * @return iStr the input string only without duplicate char.
  */
-void function();
+void removeDuplicate(std::string & iStr);
 
 }  // namespace dev_exercices
 
