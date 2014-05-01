@@ -2,17 +2,21 @@
 #ifndef SRC_DEV_EXERCICES_EXERCICE_H_
 #define SRC_DEV_EXERCICES_EXERCICE_H_
 
+#include <string>
+
 /** @namespace dev_exercices */
 namespace dev_exercices {
 
 /**
- * @brief function 
+ * @brief check if two string are anagrams
  *
- * @param [in] 
+ * @param [in] iStr1 the first string
+ * @param [in] iStr2 the first string
  *
- * @return 
+ * @return true: if the two string are anagrams
+ * @return false: if the two string are not anagrams
  */
-void function();
+bool areAnagram(const std::string &iStr1,const std::string &iStr2);
 
 }  // namespace dev_exercices
 
