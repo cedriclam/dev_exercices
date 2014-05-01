@@ -2,8 +2,8 @@
 
 namespace dev_exercices {
 
-int square(int n) {
-  return n * n;
+void function(){
+
 }
 
 }  // namespace dev_exercices

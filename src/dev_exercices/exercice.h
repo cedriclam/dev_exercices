@@ -6,27 +6,13 @@
 namespace dev_exercices {
 
 /**
- * @brief Calculate the square of given number.
+ * @brief function 
  *
- * @param [in] n A number.
+ * @param [in] 
  *
- * @return The square of given number n.
+ * @return 
  */
-int square(int n);
-
-/**
- * @brief Calculate the factorial of given number.
- *
- * @param [in] n A number.
- *
- * @return The factorial of given number n.
- */
-inline int factorial(int n) {
-  if (n <= 1) {
-    return 1;
-  }
-  return n * factorial(n-1);
-}
+void function();
 
 }  // namespace dev_exercices
 
