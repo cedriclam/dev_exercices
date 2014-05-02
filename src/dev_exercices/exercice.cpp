@@ -2,34 +2,38 @@
 
 #include "dev_exercices/Matrix.h"
 
-#include <array>
+#include <vector>
 
 namespace dev_exercices {
 
-void rotate(Matrix& ioMatrix, const int size){
-  for(int i = 0; i < (size/2); ++i){
-    int last = size - 1 - i;
+void updateMatrix(Matrix& ioMatrix){
+  int rowSize = ioMatrix.size();
+  int columnSize = 0;
+  if (rowSize > 0){
+    columnSize = ioMatrix.front().size();
+  }
 
-    for(int j = i; j < size-1; ++j){
+  std::vector<bool> isRowContains0(rowSize,false);
+  std::vector<bool> isColumnContains0(rowSize,false);
 
-      int offset = j - i;
-
-      // save the top left element
-      int first = ioMatrix[i][j];
-
-      // move bottom left to top left
-      ioMatrix[i][j] = ioMatrix[last - offset][i];
-
-      // move bottom right to bottom left
-      ioMatrix[last - offset][i] = ioMatrix[last][last - offset];
-
-      // move top left to bottom left
-      ioMatrix[last][last - offset] = ioMatrix[j][last];
-
-      // write the first element to his correct place
-      ioMatrix[j][last] = first;
+  for(int i = 0; i < rowSize; ++i ){
+    for(int j = 0; j < columnSize; ++j ){
+      if (ioMatrix[i][j] == 0){
+        isColumnContains0[j] = true;
+        isRowContains0[i] = true;
+        break;
+      }
     }
   }
+
+  for(int i = 0; i < rowSize; ++i ){
+    for(int j = 0; j < columnSize; ++j ){
+      if (isColumnContains0[j] || isRowContains0[i]){
+        ioMatrix[i][j] = 0;
+      }
+    }
+  }
+
 }
 
 

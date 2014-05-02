@@ -10,7 +10,7 @@ namespace dev_exercices {
 
 class Matrix: public std::vector<std::vector<int> >{
 public:
-  Matrix(int iSize);
+  Matrix(int iRowSize,int iColumnSize);
   virtual ~Matrix();
 
   std::string toString();

@@ -1,14 +1,14 @@
 #include "dev_exercices/Matrix.h"
 
-#include <sstream> 
+#include <sstream>
 
 namespace dev_exercices {
 
-  Matrix::Matrix(int iSize){
-    resize(iSize);
-    for(std::vector<int>& aLine : *this)
+  Matrix::Matrix(int iRowSize,int iColumnSize){
+    resize(iRowSize);
+    for(std::vector<int>& aRow : *this)
     {
-      aLine.resize(iSize);
+      aRow.resize(iColumnSize);
     }
   }
 
@@ -19,10 +19,10 @@ namespace dev_exercices {
   std::string Matrix::toString(){
     std::stringstream output;
 
-    for(std::vector<int>& aLine : *this)
+    for(std::vector<int>& aRow : *this)
     {
       output << "[ ";
-      for(int& value : aLine)
+      for(int& value : aRow)
       {
         output << value << " ";
       }
