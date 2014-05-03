@@ -2,28 +2,26 @@
 #ifndef SRC_DEV_EXERCICES_EXERCICE_H_
 #define SRC_DEV_EXERCICES_EXERCICE_H_
 
+#include <exception>
 
 /** @namespace dev_exercices */
 namespace dev_exercices {
 class Node;
 
-/**
- * @brief return a pointer to the nth Node in a linked list
- *
- * @param [in] ipNode pointer to a Node
- *
- * @return the pointer to nth Node in linked list
- */
-Node* findNodeByIndex(Node *ipNodeHead, int index);
+struct isNodeisTailException : std::exception {
+  const char* what() const noexcept {return "The Node is the tail!\n";}
+};
 
 /**
- * @brief return a pointer to the nth Node from the end of a linked list
+ * @brief remove a specific Node in a linked linked list
+ * Node should be in the middle of the list (not the tail)
  *
  * @param [in] ipNode pointer to a Node
  *
- * @return the pointer to nth Node from the end of a linked list
+ * @assert if the Node is the tail of the linked list
  */
-Node* findNodeByReverseIndex(Node *ipNodeHead, int index);
+void removeThisNode(Node *ipNode);
+
 
 
 }  // namespace dev_exercices

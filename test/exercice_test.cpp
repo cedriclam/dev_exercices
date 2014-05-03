@@ -7,20 +7,13 @@
 
 namespace dev_exercices {
 
-TEST(findNodeByIndex, withIndex0) {
+TEST(removeThisNode, nullNode) {
 
-  Node* pNewNode = new Node(4);
-  Node* pNewNode2 = new Node(2);
-  pNewNode->setNext(pNewNode2);
+  EXPECT_NO_THROW(removeThisNode(NULL));
 
-  Node* pResultNode = findNodeByIndex(pNewNode,0);
-  EXPECT_TRUE(pResultNode != NULL);
-  EXPECT_EQ(pResultNode->data() , 4);
-
-  delete pNewNode;
 }
 
-TEST(findNodeByIndex, withIndex2) {
+TEST(removeThisNode, removeOK) {
 
   Node* pNewNode = new Node(4);
   Node* pNewNode2 = new Node(2);
@@ -31,40 +24,15 @@ TEST(findNodeByIndex, withIndex2) {
   pNewNode2->setNext(pNewNode3);
   pNewNode3->setNext(pNewNode4);
 
-  Node* pResultNode = findNodeByIndex(pNewNode,2);
-  EXPECT_TRUE(pResultNode != NULL);
-  EXPECT_EQ(pResultNode->data() , 1);
+  removeThisNode(pNewNode2);
+
+  EXPECT_TRUE(pNewNode->next() != NULL);
+  EXPECT_EQ(pNewNode->next()->data() , 1);
 
   delete pNewNode;
 }
 
-TEST(findNodeByIndex, indexToBig) {
-
-  Node* pNewNode = new Node(4);
-  Node* pNewNode2 = new Node(2);
-  pNewNode->setNext(pNewNode2);
-
-  Node* pResultNode = findNodeByIndex(pNewNode,6);
-  EXPECT_TRUE(pResultNode == NULL);
-
-  delete pNewNode;
-}
-
-
-TEST(findNodeByReverseIndex, withIndex0) {
-
-  Node* pNewNode = new Node(4);
-  Node* pNewNode2 = new Node(2);
-  pNewNode->setNext(pNewNode2);
-
-  Node* pResultNode = findNodeByReverseIndex(pNewNode,0);
-  EXPECT_TRUE(pResultNode != NULL);
-  EXPECT_EQ(pResultNode->data() , 2);
-
-  delete pNewNode;
-}
-
-TEST(findNodeByReverseIndex, withIndex2) {
+TEST(removeThisNode, theNodeIsTheTail) {
 
   Node* pNewNode = new Node(4);
   Node* pNewNode2 = new Node(2);
@@ -75,21 +43,7 @@ TEST(findNodeByReverseIndex, withIndex2) {
   pNewNode2->setNext(pNewNode3);
   pNewNode3->setNext(pNewNode4);
 
-  Node* pResultNode = findNodeByReverseIndex(pNewNode,1);
-  EXPECT_TRUE(pResultNode != NULL);
-  EXPECT_EQ(pResultNode->data() , 1);
-
-  delete pNewNode;
-}
-
-TEST(findNodeByReverseIndex, indexToBig) {
-
-  Node* pNewNode = new Node(4);
-  Node* pNewNode2 = new Node(2);
-  pNewNode->setNext(pNewNode2);
-
-  Node* pResultNode = findNodeByReverseIndex(pNewNode,6);
-  EXPECT_TRUE(pResultNode == NULL);
+  EXPECT_ANY_THROW(removeThisNode(pNewNode4));
 
   delete pNewNode;
 }
