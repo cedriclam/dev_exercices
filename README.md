@@ -3,6 +3,8 @@ dev exercices
 
 Differents development exercies from the book cracking the coding interview
 
+Each exercice have a dedicated branch.
+
 Requirements
 ------------
 
