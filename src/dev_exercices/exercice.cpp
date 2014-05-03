@@ -5,31 +5,40 @@
 
 namespace dev_exercices {
 
+Node* addition(Node *ipNodeA,Node *ipNodeB){
+  Node* pNbA = ipNodeA;
+  Node* pNbB = ipNodeB;
 
-void removeThisNode(Node *ipNode){
-  if (ipNode == NULL){
-    return;
+  Node* pResultHead = new Node(0);
+  int deducation = 0;
+  Node* pNodeResult = pResultHead;
+
+  while((pNbA != NULL) || (pNbB != NULL)){
+    int sum = deducation;
+    if (pNbA != NULL){
+      sum += pNbA->data();
+      pNbA = pNbA->next();
+    }
+
+    if (pNbB != NULL){
+      sum += pNbB->data();
+      pNbB = pNbB->next();
+    }
+
+    if (sum > 9){
+      deducation = 1;
+    } else {
+      deducation = 0;
+    }
+
+    pNodeResult->setData(sum % 10);
+    pNodeResult->setNext(new Node(0));
+    pNodeResult = pNodeResult->next();
   }
 
-  // the ipNode is the tail of the linked list
-  // this should not append
-  if(ipNode->next() == NULL){
-    throw new isNodeisTailException;
-  }
 
-
-  Node* currentNextNode = ipNode->next();
-  // set the next node data to the current node
-  ipNode->setData(currentNextNode->data());
-  // set the next next node to the current node
-  ipNode->setNext(currentNextNode->next());
-
-  // remove link between currentNextNode and his next Node
-  currentNextNode->setNext(NULL);
-  // delete the currentNextNode
-  delete currentNextNode;
-
-  return;
+  return pResultHead;
 }
+
 
 }  // namespace dev_exercices
