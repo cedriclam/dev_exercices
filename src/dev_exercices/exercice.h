@@ -8,20 +8,23 @@ namespace dev_exercices {
 class Node;
 
 /**
- * @brief remove a Node in a linked list
+ * @brief return a pointer to the nth Node in a linked list
  *
  * @param [in] ipNode pointer to a Node
  *
- * @return the pointer to next Node linked in the removed Node
+ * @return the pointer to nth Node in linked list
  */
-Node* removeNode(Node *ipNode);
+Node* findNodeByIndex(Node *ipNodeHead, int index);
+
 /**
- * @brief remove all duplicate Node in a Linked list
+ * @brief return a pointer to the nth Node from the end of a linked list
  *
- * @param [in] ipNodeHead pointer to a Node
+ * @param [in] ipNode pointer to a Node
  *
+ * @return the pointer to nth Node from the end of a linked list
  */
-void removeDuplicate(Node *ipNodeHead);
+Node* findNodeByReverseIndex(Node *ipNodeHead, int index);
+
 
 }  // namespace dev_exercices
 

@@ -1,52 +1,60 @@
 #include "dev_exercices/exercice.h"
 #include "dev_exercices/Node.h"
+
 #include <cstddef>
 
 namespace dev_exercices {
 
-Node* removeNode(Node *ipNode){
-  if (ipNode == NULL){
+Node* findNodeByIndex(Node *ipNodeHead, int index){
+  if (ipNodeHead == NULL){
     return NULL;
   }
 
-  Node* pNodeDelete = ipNode;
-  Node* pNodeToReturn = ipNode->next();
-  ipNode->setNext(NULL);
-  if (pNodeDelete){
-    delete pNodeDelete;
+  int i = 0; //counter for index
+  Node* pCurentNode = ipNodeHead;
+
+  while(pCurentNode != NULL && i < (index)){
+    if (pCurentNode->next() != NULL){
+      ++i;
+      pCurentNode = pCurentNode->next();
+    } else{
+      return NULL;
+    }
   }
 
-  return pNodeToReturn;
+  return pCurentNode;
 }
 
-void removeDuplicate(Node *ipNodeHead){
+
+Node* findNodeByReverseIndex(Node *ipNodeHead, int index){
   if (ipNodeHead == NULL){
-    return;
+    return NULL;
   }
 
+  int counter = 0;
   Node* pCurentNode = ipNodeHead;
-  Node* pNextNode = NULL;
-  Node* pCheckNode = NULL;
+  Node* pNodeToReturn = pCurentNode;
 
   while(pCurentNode != NULL){
-    pCheckNode = pCurentNode;
-    pNextNode = pCurentNode->next();
-
-    while(pNextNode != NULL){
-      if (pCurentNode->data() == pNextNode->data()){
-        pCheckNode->setNext(removeNode(pNextNode));
-        pNextNode = pCheckNode->next();
-      }
-      else {
-        pCheckNode = pNextNode;
-        pNextNode = pCheckNode->next();
-      }
-
+    if (counter <= index){
+      ++counter;
+    }
+    else
+    {
+      // when the counter is equal to the index, we can start to set
+      // the return pointer.
+      pNodeToReturn = pNodeToReturn->next();
     }
 
     pCurentNode = pCurentNode->next();
   }
 
+  // in case of index bigger than the linked list size, return null
+  if (counter <= index){
+    return NULL;
+  }
+
+  return pNodeToReturn;
 }
 
 }  // namespace dev_exercices
