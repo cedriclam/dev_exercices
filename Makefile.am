@@ -39,7 +39,9 @@ lib_gmock_libgmock_main_la_LIBADD = \
 # Build rules for libraries.
 pkginclude_HEADERS = \
   src/dev_exercices/exercice.h \
-  src/dev_exercices/Node.h
+  src/dev_exercices/Node.h \
+  src/dev_exercices/Stack.h \
+  src/dev_exercices/Queue.h
 
 lib_LTLIBRARIES = \
   src/dev_exercices/libsample.la
@@ -48,7 +50,11 @@ src_dev_exercices_libsample_la_SOURCES = \
   src/dev_exercices/exercice.h \
   src/dev_exercices/exercice.cpp \
   src/dev_exercices/Node.h \
-  src/dev_exercices/Node.cpp
+  src/dev_exercices/Node.cpp \
+  src/dev_exercices/Stack.h \
+  src/dev_exercices/Stack.cpp \
+  src/dev_exercices/Queue.h \
+  src/dev_exercices/Queue.cpp
 
 # Build rules for tests.
 # TESTS_ENVIRONMENT: Set environment variables for the test run
