@@ -7,17 +7,21 @@ namespace dev_exercices {
 
 class Node{
   public:
-    Node(const int& iData);
+    Node(const int& iData, int iMin);
     virtual ~Node();
 
     inline int data() { return _data; };
     inline void setData(int iData) { _data = iData;};
+
+    inline int min() { return _min;};
+    inline void setMin(int iMin) { _min = iMin;};
 
     inline Node * next() { return _pNext; };
     inline void setNext(Node* ipNode) { _pNext = ipNode; };
 
   private:
     int _data;
+    int _min;
     Node* _pNext;
 };
 

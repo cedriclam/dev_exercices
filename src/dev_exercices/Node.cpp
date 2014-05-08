@@ -4,7 +4,8 @@
 
 namespace dev_exercices {
 
-Node::Node(const int& iData): _data (iData), _pNext (NULL){
+Node::Node(const int& iData, int iMin)
+: _data (iData), _min (iMin), _pNext (NULL){
 }
 
 Node::~Node(){

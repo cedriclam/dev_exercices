@@ -3,6 +3,8 @@
 
 #include <cstddef>
 
+#include <limits>
+
 namespace dev_exercices {
 
 Stack::Stack(): _pTop (NULL){
@@ -24,9 +26,21 @@ Node* Stack::pop(){
 }
 
 void Stack::push(int iData){
-  Node* newNode = new Node(iData);
+  Node* newNode = new Node(iData,iData);
+
+  if ((_pTop != NULL) && ( _pTop->min() < iData)){
+    newNode->setMin(_pTop->min());
+  }
+
   newNode->setNext(_pTop);
   _pTop = newNode;
+}
+
+int Stack::min(){
+  if(_pTop != NULL){
+    return _pTop->min();
+  }
+  return std::numeric_limits<int>::min();
 }
 
 }  // namespace dev_exercices

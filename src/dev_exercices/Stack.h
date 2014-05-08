@@ -14,6 +14,8 @@ class Stack{
     Node* pop();
     void push(int iData);
 
+    int min();
+
   private:
     Node* _pTop;
 };

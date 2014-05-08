@@ -17,10 +17,10 @@ Queue::~Queue(){
 
 void Queue::enqueue(int iData){
   if (_pHead == NULL){
-    _pTail = new Node(iData);
+    _pTail = new Node(iData,iData);
     _pHead = _pTail;
   } else {
-    _pTail->setNext(new Node(iData));
+    _pTail->setNext(new Node(iData,iData));
     _pTail = _pTail->next();
   }
 }
