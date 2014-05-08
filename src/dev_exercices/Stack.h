@@ -2,6 +2,8 @@
 #ifndef SRC_DEV_EXERCICES_STACK_H_
 #define SRC_DEV_EXERCICES_STACK_H_
 
+#define STACK_MAX_SIZE 4
+
 /** @namespace dev_exercices */
 namespace dev_exercices {
 class Node;
@@ -13,9 +15,13 @@ class Stack{
 
     Node* pop();
     void push(int iData);
+    void push(Node* ipNode);
+
+    inline int size() { return _size; };
 
   private:
     Node* _pTop;
+    int _size;
 };
 
 }  // namespace dev_exercices
