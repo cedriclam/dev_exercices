@@ -20,6 +20,8 @@ class SetOfStacks{
     Node* pop();
     int pop_data();
 
+    int popAt(int index);
+
     inline int nb_stacks() { return _stacks.size(); };
 
   private:
