@@ -42,7 +42,8 @@ pkginclude_HEADERS = \
   src/dev_exercices/Node.h \
   src/dev_exercices/Stack.h \
   src/dev_exercices/Queue.h \
-  src/dev_exercices/SetOfStacks.h 
+  src/dev_exercices/SetOfStacks.h \
+  src/dev_exercices/Tower.h
 
 lib_LTLIBRARIES = \
   src/dev_exercices/libsample.la
@@ -57,7 +58,9 @@ src_dev_exercices_libsample_la_SOURCES = \
   src/dev_exercices/Queue.h \
   src/dev_exercices/Queue.cpp \
   src/dev_exercices/SetOfStacks.h \
-  src/dev_exercices/SetOfStacks.cpp
+  src/dev_exercices/SetOfStacks.cpp \
+  src/dev_exercices/Tower.h \
+  src/dev_exercices/Tower.cpp
 
 # Build rules for tests.
 # TESTS_ENVIRONMENT: Set environment variables for the test run

@@ -2,41 +2,35 @@
 
 #include "dev_exercices/exercice.h"
 #include "dev_exercices/Node.h"
-#include "dev_exercices/SetOfStacks.h"
+#include "dev_exercices/Tower.h"
 
 #include <cstddef>
 
 namespace dev_exercices {
 
-TEST(SetOfStacks, zeroAndzero) {
-  SetOfStacks aSetOfStacks;
+TEST(Tower, 5Disks) {
 
-  EXPECT_EQ(aSetOfStacks.nb_stacks(),0);
+  int n = 5;
 
-  aSetOfStacks.push(1);
-  aSetOfStacks.push(2);
-  aSetOfStacks.push(3);
-  aSetOfStacks.push(4);
+  Tower aTower1(1);
+  Tower aTower2(2);
+  Tower aTower3(3);
 
-  EXPECT_EQ(aSetOfStacks.nb_stacks(),1);
+  for (int i = n; i > 0; --i){
+    aTower1.push(i);
+  }
 
-  aSetOfStacks.push(4);
-  EXPECT_EQ(aSetOfStacks.nb_stacks(),2);
-  aSetOfStacks.push(5);
-  aSetOfStacks.push(6);
-  aSetOfStacks.push(7);
+  aTower1.moveDiscs(n,aTower3,aTower2);
 
-  EXPECT_EQ(aSetOfStacks.nb_stacks(),2);
-  aSetOfStacks.push(8);
+  EXPECT_EQ(aTower3.pop(),1);
+  EXPECT_EQ(aTower3.pop(),2);
+  EXPECT_EQ(aTower3.pop(),3);
+  EXPECT_EQ(aTower3.pop(),4);
+  EXPECT_EQ(aTower3.pop(),5);
 
-  EXPECT_EQ(aSetOfStacks.nb_stacks(),3);
-  EXPECT_EQ(aSetOfStacks.pop_data(),8);
-  EXPECT_EQ(aSetOfStacks.pop_data(),7);
-  EXPECT_EQ(aSetOfStacks.pop_data(),6);
-  EXPECT_EQ(aSetOfStacks.pop_data(),5);
-  EXPECT_EQ(aSetOfStacks.nb_stacks(),2);
-
-
+  EXPECT_EQ(aTower3.pop(),-1);
+  EXPECT_EQ(aTower2.pop(),-1);
+  EXPECT_EQ(aTower1.pop(),-1);
 }
 
 }  // namespace dev_exercices

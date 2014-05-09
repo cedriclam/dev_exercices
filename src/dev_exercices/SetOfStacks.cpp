@@ -65,5 +65,19 @@ int SetOfStacks::pop_data(){
   return -1;
 }
 
+int SetOfStacks::popAt(int index){
+  if (index < _stacks.size()){
+    Node* pNode = _stacks.front()->pop();
+    if (pNode != NULL){
+      int returnValue = pNode->data();
+      pNode->setNext(NULL);
+      delete pNode;
+
+      return returnValue;
+    }
+  }
+
+  return -1;
+}
 
 }

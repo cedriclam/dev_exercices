@@ -18,8 +18,10 @@ Node* Stack::pop(){
   if(_pTop != NULL){
     Node* output = _pTop;
     _pTop = _pTop->next();
+    output->setNext(NULL);
+
     --_size;
-    
+
     return output;
   }
   return NULL;
