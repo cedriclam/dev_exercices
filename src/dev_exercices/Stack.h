@@ -11,11 +11,14 @@ class Stack{
     Stack();
     virtual ~Stack();
 
-    Node* pop();
+    int pop();
     void push(int iData);
+
+    inline int size() { return _size;};
 
   private:
     Node* _pTop;
+    int _size;
 };
 
 }  // namespace dev_exercices

@@ -5,7 +5,7 @@
 
 namespace dev_exercices {
 
-Stack::Stack(): _pTop (NULL){
+Stack::Stack(): _pTop (NULL), _size(0){
 }
 
 Stack::~Stack(){
@@ -14,19 +14,25 @@ Stack::~Stack(){
   }
 }
 
-Node* Stack::pop(){
+int Stack::pop(){
   if(_pTop != NULL){
     Node* output = _pTop;
     _pTop = _pTop->next();
-    return output;
+    output->setNext(NULL);
+    int outputValue = output->data();
+    delete output;
+    --_size;
+
+    return outputValue;
   }
-  return NULL;
+  return -1;
 }
 
 void Stack::push(int iData){
   Node* newNode = new Node(iData);
   newNode->setNext(_pTop);
   _pTop = newNode;
+  ++_size;
 }
 
 }  // namespace dev_exercices
