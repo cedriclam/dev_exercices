@@ -41,7 +41,8 @@ pkginclude_HEADERS = \
   src/dev_exercices/exercice.h \
   src/dev_exercices/SortAlgoInterface.h \
   src/dev_exercices/BubbleSort.h \
-  src/dev_exercices/SelectSort.h
+  src/dev_exercices/SelectSort.h \
+  src/dev_exercices/MergeSort.h
 
 lib_LTLIBRARIES = \
   src/dev_exercices/libsample.la
@@ -53,7 +54,9 @@ src_dev_exercices_libsample_la_SOURCES = \
   src/dev_exercices/BubbleSort.h \
   src/dev_exercices/BubbleSort.cpp \
   src/dev_exercices/SelectSort.h \
-  src/dev_exercices/SelectSort.cpp
+  src/dev_exercices/SelectSort.cpp \
+  src/dev_exercices/MergeSort.h \
+  src/dev_exercices/MergeSort.cpp
 
 
 # Build rules for tests.
