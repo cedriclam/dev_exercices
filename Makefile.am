@@ -38,14 +38,20 @@ lib_gmock_libgmock_main_la_LIBADD = \
 
 # Build rules for libraries.
 pkginclude_HEADERS = \
-  src/dev_exercices/exercice.h
+  src/dev_exercices/exercice.h \
+  src/dev_exercices/SortAlgoInterface.h \
+  src/dev_exercices/BubbleSort.h
 
 lib_LTLIBRARIES = \
   src/dev_exercices/libsample.la
 
 src_dev_exercices_libsample_la_SOURCES = \
   src/dev_exercices/exercice.h \
-  src/dev_exercices/exercice.cpp
+  src/dev_exercices/exercice.cpp \
+  src/dev_exercices/SortAlgoInterface.h \
+  src/dev_exercices/BubbleSort.h \
+  src/dev_exercices/BubbleSort.cpp
+
 
 # Build rules for tests.
 # TESTS_ENVIRONMENT: Set environment variables for the test run
@@ -88,4 +94,3 @@ check-unit-tests-with-valgrind:
 include Makefile.am.coverage
 include Makefile.am.checkstyle
 include Makefile.am.doxygen
-
