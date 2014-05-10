@@ -6,7 +6,7 @@ namespace sortalgo {
 
 void BubbleSort::sort(std::vector<int> &iData)
 {
-  int maxIndex = iData.size() - 1;
+  int maxIndex = iData.size();
   bool isSorted = false;
   while(!isSorted){
     isSorted = true;
@@ -16,6 +16,7 @@ void BubbleSort::sort(std::vector<int> &iData)
         iData[i+1] = iData[i];
         iData[i] = tmp;
         isSorted = false;
+        --maxIndex;
       }
     }
   }
